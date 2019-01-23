@@ -72,18 +72,18 @@
     <checkbox bit="27" title="Vertical Override" comment="Enabling this uses the vertical-only image for Propeller and Bouncy." requiredbit="21-24" requiredval="5"/>
   </sprite> <!-- #0: Mario Jumps [TESTING ONLY] -->
   
-  <sprite id="1" name="(Unused) Glitch Mario" noyoshi="True" notes="&lt;font color=&quot;red&quot;&gt;Use of this sprite is not recommended.&lt;/font&gt;"/>
-  <sprite id="2" name="(Unused) Glitch Mario" noyoshi="True" notes="&lt;font color=&quot;red&quot;&gt;Use of this sprite is not recommended.&lt;/font&gt;"/>
-  <sprite id="3" name="(Unused) Glitch Mario" noyoshi="True" notes="&lt;font color=&quot;red&quot;&gt;Use of this sprite is not recommended.&lt;/font&gt;"/>
-  <sprite id="4" name="(Unused) Glitch Mario" noyoshi="True" notes="&lt;font color=&quot;red&quot;&gt;Use of this sprite is not recommended.&lt;/font&gt;"/>
-  <sprite id="5" name="(Unused) Glitch Mario" noyoshi="True" notes="&lt;font color=&quot;red&quot;&gt;Use of this sprite is not recommended.&lt;/font&gt;"/>
-  <sprite id="6" name="(Unused) Glitch Mario" noyoshi="True" notes="&lt;font color=&quot;red&quot;&gt;Use of this sprite is not recommended.&lt;/font&gt;"/>
-  <sprite id="7" name="(Unused) Glitch Mario" noyoshi="True" notes="&lt;font color=&quot;red&quot;&gt;Use of this sprite is not recommended.&lt;/font&gt;"/>
-  <sprite id="8" name="(Unused) Glitch Mario" noyoshi="True" notes="&lt;font color=&quot;red&quot;&gt;Use of this sprite is not recommended.&lt;/font&gt;"/>
+  <sprite id="1" name="(Unused) Glitch Mario" noyoshi="True" notes="&lt;font color=&quot;red&quot;&gt;Use of this sprite is not recommended.&lt;/font&gt;"  advancednotes="It is recommended to use sprite 9 instead."/>
+  <sprite id="2" name="(Unused) Glitch Mario" noyoshi="True" notes="&lt;font color=&quot;red&quot;&gt;Use of this sprite is not recommended.&lt;/font&gt;"  advancednotes="It is recommended to use sprite 9 instead."/>
+  <sprite id="3" name="(Unused) Glitch Mario" noyoshi="True" notes="&lt;font color=&quot;red&quot;&gt;Use of this sprite is not recommended.&lt;/font&gt;"  advancednotes="It is recommended to use sprite 9 instead."/>
+  <sprite id="4" name="(Unused) Glitch Mario" noyoshi="True" notes="&lt;font color=&quot;red&quot;&gt;Use of this sprite is not recommended.&lt;/font&gt;"  advancednotes="It is recommended to use sprite 9 instead."/>
+  <sprite id="5" name="(Unused) Glitch Mario" noyoshi="True" notes="&lt;font color=&quot;red&quot;&gt;Use of this sprite is not recommended.&lt;/font&gt;"  advancednotes="It is recommended to use sprite 9 instead."/>
+  <sprite id="6" name="(Unused) Glitch Mario" noyoshi="True" notes="&lt;font color=&quot;red&quot;&gt;Use of this sprite is not recommended.&lt;/font&gt;"  advancednotes="It is recommended to use sprite 9 instead."/>
+  <sprite id="7" name="(Unused) Glitch Mario" noyoshi="True" notes="&lt;font color=&quot;red&quot;&gt;Use of this sprite is not recommended.&lt;/font&gt;"  advancednotes="It is recommended to use sprite 9 instead."/>
+  <sprite id="8" name="(Unused) Glitch Mario" noyoshi="True" notes="&lt;font color=&quot;red&quot;&gt;Use of this sprite is not recommended.&lt;/font&gt;"  advancednotes="It is recommended to use sprite 9 instead."/>
   
-  <sprite id="9" name="(Unused) Glitch Player Actor" noyoshi="True" notes="&lt;font color=&quot;red&quot;&gt;Use of this sprite is not recommended.&lt;/font&gt;" advancednotes="This sprite is the most stable version of all the &quot;Glitch Marios.&quot; (#0-#9)&lt;br&gt;It creates a stationary Player clone. The clone will not move, and will shoot Fireballs if the matching player has the Fire Flower powerup. Other possible functions are untested. It's possible the game utilizes this data to create a temporary player actor at Entrances for no-control load-ins before switching to a controlled player actor. Additionally, depending on the position of this sprite relative to an Entrance, this Player Actor can sometimes be controlled instead of the one created by the entrance.">
+  <sprite id="9" name="(Unused) Glitch Player Actor" noyoshi="True" notes="&lt;font color=&quot;red&quot;&gt;Use of this sprite is not recommended.&lt;/font&gt;" advancednotes="This sprite is the most stable version of all the &quot;Glitch Marios.&quot; (#0-#9)&lt;br&gt;Depending on the position of this sprite relative to an Entrance, this sprite will override it and become an Entrance itself. This can be useful in certain environments to customize the entrance for each player. If loaded after starting the level, the game will kill the default Player Actor, though in a buggy way, and make you control this sprite instead.">
     <dualbox bit="24" title1="Faces Right" title2="Faces Left" comment="This determines which way the spawned Player Actor faces." advanced="True"/>
-    <list nybble="7-8" title="Load-In Animation" comment="This determines what animation is used by the spawned Player Actor when it is first loaded." comment2="This value uses the same list and order as normal entrances. Every value creates a character at its position. Compared to normal entrances, Mario will be positioned on top of the sprite's placement and not inside it. The 3D model is stationary and does not move." advanced="True">
+    <list nybble="7-8" title="Load-In Animation" comment="This determines what animation is used by the spawned Player Actor when it is first loaded." comment2="This value uses the same list and order as normal entrances." advanced="True">
       <entry value="0">Normal</entry>
       <entry value="1">Normal</entry>
       <entry value="2">Door Exit</entry>
@@ -115,7 +115,7 @@
       <entry value="28">Unknown (CRASH)</entry>
       <entry value="29">Unknown (FREEZE)</entry>
     </list>
-    <list bit="47-48" title="Character" comment="This determines which character will be spawned." advanced="True">
+    <list bit="47-48" title="Character" comment="This determines which character will be spawned. If the player corresponding to each character isn't present, the Player Actor will still act like a regular player." advanced="True">
       <entry value="0">Mario</entry>
       <entry value="1">Luigi</entry>
       <entry value="2">Yellow Toad</entry>
@@ -123,9 +123,11 @@
     </list>
   </sprite> <!-- #9: (Unused) Glitch Player Actor -->
   
-  <sprite id="10" name="(Unused) Large Object Thrower" asmhacks="True" notes="Used in the Newer Final Boss Fight. This is spawned through Captain Bowser's code. It will throw a larger version of the Projectile at a 45° arc. &lt;br&gt; &lt;br&gt;&lt;font color=&quot;red&quot;&gt;Use of this sprite is not recommended.&lt;/font&gt;" advancednotes="This sprite is best made use of by spawning it through the Actor Spawner. Projectiles have a very high velocity. It will spawn the object around 5 blocks above the placement of the sprite.">
-    <dependency notes="[95] Hammer Bros is required to be placed in the level if using this sprite with the Object: Hammer setting.">
-      <suggested sprite="95"/> <!-- Requires Hammer Bros if Hammer is used -->
+  <sprite id="10" name="(Unused) Large Object Thrower" asmhacks="True" notes="Used in the Newer Final Boss Fight and spawned through Captain Bowser's code. When used alone, the specified Object will be thrown automatically at a 45° arc and at a very high speed. &lt;br&gt; &lt;br&gt;&lt;font color=&quot;red&quot;&gt;Use of this sprite is not recommended.&lt;/font&gt;" advancednotes="The object will be spawned 4 blocks above the sprite's placement. This sprite is best made use of by spawning it through the Actor Spawner." yoshinotes="Yoshi will automatically eat the projectile and be hurt at the same time, should he collide with the thrown Object.">
+    <dependency notes="As this sprite will pull Models and Animations from specific .arc files, those sprites are required to be placed within the level to prevent a game crash. The list of required sprites is as follows:&lt;br&gt;&lt;br&gt;0-1: choropoo.arc (303)&lt;br&gt;2: koopa_clown_bomb.arc (no sprites required)&lt;br&gt;3: bros.arc (95)&lt;br&gt;4: dossun.arc/t02.brres (47)&lt;br&gt;5: KoopaShip.arc (no sprites required)">
+      <suggested sprite="47"/> <!-- Requires Thwomp if Thwomp is used -->
+	  <suggested sprite="95"/> <!-- Requires Hammer Bro if Hammer is used -->
+      <suggested sprite="303"/> <!-- Requires Monty Mole if the Wrenches are used -->
     </dependency>
     <dualbox bit="40" title1="Place in Front" title2="Place Behind" comment="This determines the Z-Order of the thrown object." advanced="True" advancedcomment="Place in Front: +3300 to the Z-Order.&lt;br&gt;Place Behind: -1804 to the Z-Order."/>
     <list bit="41-44" title="Object" comment="This determines what object is thrown. These objects are larger than the normal versions." advanced="True">
@@ -136,77 +138,72 @@
       <entry value="4">Thwomp</entry>
       <entry value="5">Mushroom Present Box</entry>
     </list>
-    <dualbox bit="48" title1="Throws Left" title2="Throws Right" comment="This determines which direction the object will be thrown." advanced="True"/>
+    <dualbox bit="48" title1="Throws Right" title2="Throws Left" comment="This determines which direction the object will be thrown." advanced="True"/>
   </sprite> <!-- #10: (Unused) Large Object Thrower -->
 
-<!-- Establish full list of Dependencies -->
-  <sprite id="11" name="Custom Model Loader" asmhacks="True" notes="The Custom Model Loader allows the use of pre-scripted Models and Animations for use in user-created cutscenes. It can also provide new models as decoration for your level. &lt;br&gt; &lt;br&gt;&lt;font color=&quot;red&quot;&gt;&lt;b&gt;Warning:&lt;/b&gt; Will CRASH if [Animate Model] is set and no animation is available.&lt;/font&gt;" advancednotes="New Models and Animations can be added to this sprite's functionality specifically for your hack. This requires editing of the game code through Kamek or with the assistance of members of the NEWER team.">
-    <dependency notes="As this sprite will pull Models and Animations from specific .arc files, those sprites are required to be placed within the level to prevent a game crash. The list of required sprites is as follows: &lt;br&gt; &lt;br&gt;0-6: arrow.arc (143) &lt;br&gt;7-16: block_arrow.arc (321) &lt;br&gt;17-24: arrow.arc (143) &lt;br&gt;25-28: cage_boss_koopa.arc (439) &lt;br&gt;29-38: kameck_princess.arc (439) &lt;br&gt;39: CreditsBG.arc (???) &lt;br&gt;40-42: chestnut.arc (320) &lt;br&gt;43-48: OpeningScene.arc (273) &lt;br&gt;49: chestnut.arc (320)">
+  <sprite id="11" name="Custom Model Loader" asmhacks="True" notes="The Custom Model Loader allows the use of pre-scripted Models and Animations for use in user-created cutscenes. It can also provide new models as decorations for your level.&lt;br&gt;&lt;br&gt;&lt;font color=&quot;red&quot;&gt;&lt;b&gt;Warning&lt;/b&gt;: Will CRASH if &quot;Animate Model&quot; is set and no animation is available.&lt;/font&gt;" advancednotes="New Models and Animations can be added to this sprite's functionality specifically for your hack. This requires editing of the Newer source code.">
+    <dependency notes="As this sprite will pull Models and Animations from specific .arc files, those sprites are required to be placed within the level to prevent a game crash. The list of required sprites is as follows:&lt;br&gt;&lt;br&gt;0-6: arrow.arc (143)&lt;br&gt;7-16: block_arrow.arc (321)&lt;br&gt;17-24: arrow.arc (143)&lt;br&gt;25-28: cage_boss_koopa.arc (439)&lt;br&gt;29-38: kameck_princess.arc (439)&lt;br&gt;40-42: chestnut.arc (320)&lt;br&gt;43-48: OpeningScene.arc (273)&lt;br&gt;49: chestnut.arc (320)">
       <suggested sprite="143"/> <!-- arrow.arc -->
       <suggested sprite="321"/> <!-- block_arrow.arc -->
       <suggested sprite="439"/> <!-- cage_boss_koopa, kameck_princess -->
-      <suggested sprite="0"/> <!-- CreditsBG -->
       <suggested sprite="320"/> <!-- chestnut -->
       <suggested sprite="273"/> <!-- OpeningScene -->
     </dependency>
-    <list nybble="11-12" title="Model" comment="This determines which Model will be used. If [Animate Model] is checked, then the Models will run their coded animation instead of standing still. Values with '---' were not used in Newer levels.">
+    <list nybble="11-12" title="Model" comment="This determines which Model will be used. If &quot;Animate Model&quot; is checked, then the Models will run their coded animation instead of standing still. Values with '---' were not used in Newer levels.">
         <entry value="0">Basic Title Balloon Red [01-10]</entry>
         <entry value="1">Basic Title Balloon Green [01-10]</entry>
         <entry value="2">Basic Title Mario [01-10]</entry>
         <entry value="4">Basic Title Luigi [01-10]</entry>
-        <entry value="5">Basic Title ToadA [01-10]</entry>
-        <entry value="6">Basic Title ToadB [01-10]</entry>
+        <entry value="5">Basic Title Yellow Toad [01-10]</entry>
+        <entry value="6">Basic Title Blue Toad [01-10]</entry>
         <entry value="3">Basic Title Peach [01-10]</entry>
         <entry value="7">Victory Title Clowncar Mario [04-10]</entry>
         <entry value="8">Victory Title Clowncar Luigi [04-10]</entry>
-        <entry value="9">Victory Title Clowncar Toad A [04-10]</entry>
-        <entry value="10">Victory Title Clowncar Toad B [04-10]</entry>
+        <entry value="9">Victory Title Clowncar Yellow Toad [04-10]</entry>
+        <entry value="10">Victory Title Clowncar Blue Toad [04-10]</entry>
         <entry value="11">Victory Title Clowncar Peach [---]</entry>
         <entry value="12">Victory Title Mario [04-10]</entry>
         <entry value="13">Victory Title Luigi [04-10]</entry>
-        <entry value="14">Victory Title ToadA [04-10]</entry>
-        <entry value="15">Victory Title ToadB [04-10]</entry>
+        <entry value="14">Victory Title Yellow Toad [04-10]</entry>
+        <entry value="15">Victory Title Blue Toad [04-10]</entry>
         <entry value="16">Victory Title Peach [---]</entry>
         <entry value="17">Perfect Title Peach's Castle (Do Not Animate) [04-11]</entry>
         <entry value="18">Perfect Title Mario [04-11]</entry>
         <entry value="19">Perfect Title Luigi [04-11]</entry>
-        <entry value="20">Perfect Title ToadA [04-11]</entry>
-        <entry value="21">Perfect Title ToadB [04-11]</entry>
-        <entry value="22">Perfect Title Peach [---]</entry>
-        <entry value="23">Backdrop [---]</entry>
+        <entry value="20">Perfect Title Yellow Toad [04-11]</entry>
+        <entry value="21">Perfect Title Blue Toad [04-11]</entry>
+        <entry value="22">CRASH</entry>
+        <entry value="23">CRASH</entry>
         <entry value="24">Cloud [10-22]</entry>
         <entry value="43">Opening Balloon Red [02-41]</entry>
         <entry value="44">Opening Balloon Green [02-41]</entry>
         <entry value="46">Opening Mario [02-41]</entry>
         <entry value="45">Opening Luigi [02-41]</entry>
-        <entry value="47">Opening ToadA [02-41]</entry>
-        <entry value="48">Opening ToadB [02-41]</entry>
+        <entry value="47">Opening Yellow Toad [02-41]</entry>
+        <entry value="48">Opening Blue Toad [02-41]</entry>
         <entry value="25">Ending Broken Ship [08-41]</entry>
         <entry value="26">Ending Tree [08-41]</entry>
         <entry value="27">Ending Bowser [08-41]</entry>
         <entry value="28">Ending Player Clowncar [08-41]</entry>
-        <entry value="29">Credits Mario Clowncar [Unknown]</entry>
-        <entry value="30">Credits Luigi Clowncar [Unknown]</entry>
-        <entry value="31">Credits ToadA Clowncar [Unknown]</entry>
-        <entry value="32">Credits ToadB Clowncar [Unknown]</entry>
+        <entry value="29">Credits Mario Clowncar [---]</entry>
+        <entry value="30">Credits Luigi Clowncar [---]</entry>
+        <entry value="31">Credits Yellow Toad Clowncar [---]</entry>
+        <entry value="32">Credits Blue Toad Clowncar [---]</entry>
         <entry value="33">Credits Peach Clowncar [---]</entry>
-        <entry value="34">Credits Mario [Unknown]</entry>
-        <entry value="35">Credits Luigi [Unknown]</entry>
-        <entry value="36">Credits ToadA [Unknown]</entry>
-        <entry value="37">Credits ToadB [Unknown]</entry>
+        <entry value="34">Credits Mario [---]</entry>
+        <entry value="35">Credits Luigi [---]</entry>
+        <entry value="36">Credits Yellow Toad [---]</entry>
+        <entry value="37">Credits Blue Toad [---]</entry>
         <entry value="38">Credits Peach [---]</entry>
-        <entry value="39">Credits Peach's Castle [Unknown]</entry>
-        <entry value="40">Tree Canopy A (Do Not Animate) [10-03]</entry>
-        <entry value="41">Tree Canopy B (Do Not Animate) [10-03]</entry>
-        <entry value="42">Tree Canopy C (Do Not Animate) [10-03]</entry>
-        <entry value="49">Tree Canopy D (Do Not Animate) [01-15]</entry>
-        <entry value="253">Opening, Ending, and Credits [DoNotUseMe]</entry>
-        <entry value="254">Title Screen Cinematics [DoNotUseMe]</entry>
-        <entry value="255">Level Decoration [DoNotUseMe]</entry>
+        <entry value="39">CRASH</entry>
+        <entry value="40">Tree Canopy Red (Do Not Animate) [10-03]</entry>
+        <entry value="41">Tree Canopy Beige (Do Not Animate) [10-03]</entry>
+        <entry value="42">Tree Canopy Orange (Do Not Animate) [10-03]</entry>
+        <entry value="49">Tree Canopy Green (Do Not Animate) [01-15]</entry>
     </list>
-    <value nybble="5-6" title="Scale: Value/4.0" comment="This determines the scale of the Model." comment2="Value 0 creates an original-sized Model (100%). Values above 0 are divided by 4 to determine the Model Size. 1=25%, 2=50%, 8=200%, etc." advancedcomment="Value limit unknown. Maximum value suspected to be 24, or 600%"/>
-    <checkbox bit="40" title="Animate Model" comment="When enabled, the loaded model will activate its attached animation, otherwise the loaded model will be stationary." comment2="&lt;font color=&quot;red&quot;&gt;Will CRASH if Animation not present and this is checked.&lt;/font&gt; &lt;br&gt; &lt;br&gt;Known values that must have [Animate Model] left unchecked: &lt;br&gt;17: Perfect Title Peach's Castle &lt;br&gt;40-42, 49: Tree Canopy A/B/C/D"/>
-    <list nybble="8" title="Z-Order" comment="This determines the Z-Order of the model." comment2="Some in-game Z-Order values: &lt;br&gt;Background: -5500.0 &lt;br&gt;Layer 2: -3300.0 &lt;br&gt;Layer 1: 0.0 &lt;br&gt;Player: 300.0 &lt;br&gt;Foreground: 1200.0 &lt;br&gt;Layer 0: 3300.0 &lt;br&gt;Above Layer 0: 5500.0">
+    <value nybble="5-6" title="Scale" comment="This determines the scale of the Model. See other comment." comment2="Value 0 creates an original-sized Model (100%). Other ones are divided by 4 to determine the Model Size. 1=25%, 2=50%, 8=200%, etc." advancedcomment="All Models, if not animated, will work with any set size. If animated, however, they will start not loading after reaching a certain limit (this is different for every Model)."/>
+    <checkbox bit="40" title="Animate Model" comment="When enabled, the loaded model will use its attached animation." comment2="&lt;font color=&quot;red&quot;&gt;Will CRASH if Animation not present and this is checked.&lt;/font&gt;&lt;br&gt;&lt;br&gt;Known values that must have &quot;Animate Model&quot; left unchecked:&lt;br&gt;17: Perfect Title Peach's Castle&lt;br&gt;40-42, 49: Tree Canopies"/>
+    <list nybble="8" title="Z-Order" comment="This determines the Z-Order of the model." comment2="Some in-game Z-Order values:&lt;br&gt;Background: -5500.0&lt;br&gt;Layer 2: -3300.0&lt;br&gt;Layer 1: 0.0 &lt;br&gt;Player: 300.0&lt;br&gt;Foreground: 1200.0&lt;br&gt;Layer 0: 3300.0&lt;br&gt;Above Layer 0: 5500.0">
       <entry value="0">Use Default Z-Order for Custom Model</entry>
       <entry value="1">-5000.0</entry>
       <entry value="2">-4500.0</entry>
@@ -226,9 +223,9 @@
     </list>
   </sprite> <!-- #11: Custom Model Loader -->
 
-  <sprite id="12" name="Toad House Minigame - Silver Star" notes="A collection challenge added in NewerSMBW. The player must collect all of the stars within the time limit in order to succeed and trigger an event.">
-    <value nybble="5-6" title="Target Event ID" comment="This determines which Event will be activated when all Collectible Stars in the Zone are collected." idtype="Target Event"/>
-    <list bit="47-48" title="Minimum Number of Players" comment="This determines the minimum number of players required to be present for this start to spawn.">
+  <sprite id="12" name="Toad House Minigame - Silver Star" notes="A collection challenge added in Newer. The player must collect all of the stars within the time limit in order to succeed and trigger an event.">
+    <value nybble="5-6" title="Target Event ID" comment="This determines which Event will be activated when all the Silver Stars in the Zone are collected." idtype="Target Event"/>
+    <list bit="47-48" title="Minimum Number of Players" comment="This determines the minimum number of players required to be present for the Silver Star to spawn.">
       <entry value="0">1 Player</entry>
       <entry value="1">2 Players</entry>
       <entry value="2">3 Players</entry>
@@ -236,14 +233,20 @@
     </list>
   </sprite> <!-- #12: Toad House Minigame - Silver Star -->
   
-  <sprite id="13" name="Rideable Clowncar with Cannon" asmhacks="True" noyoshi="True" notes="Used in the NewerSMBW Final Boss Fight. The player can fly around freely and shoot a cannon at a fixed angle. &lt;br&gt; &lt;br&gt;&lt;font color=&quot;red&quot;&gt;Not recommended for use outside of the Final Boss Fight.&lt;/font&gt;" advancedcomment="If you do choose to use this vehicle outside of the boss fight, please keep in mind there is no documentation for what issues you might encounter. Be sure to test your level for crashes and glitches. Cannon shots behave similarly but not identically to Bob-omb explosions. Water causes it to react similarly to Yoshi, with the player jumping off and the Clowncar sinking.">
-    <value nybble="12" title="Minimum Number of Players" comment="This determines the number of players required for the Clowncar to load. A value of 4 will only load if there are 4 players." advanced="True"/>
+  <sprite id="13" name="Rideable Clowncar with Cannon" asmhacks="True" noyoshi="True" notes="Used in the Newer Final Boss Fight. The player can fly around freely and shoot a cannon at a fixed angle.&lt;br&gt;&lt;br&gt;&lt;font color=&quot;red&quot;&gt;Not recommended for use outside of the Final Boss Fight.&lt;/font&gt;" advancednotes="If you do choose to use this vehicle outside of the boss fight, please keep in mind there is no documentation for what issues you might encounter. Be sure to test your level for crashes and glitches. Cannon shots behave similarly but not identically to Bob-omb explosions. Water causes it to react similarly to Yoshi, with the player jumping off and the Clowncar sinking. The player won't collect coins, and if he is damaged, he might leave the Clowncar but still control it.">
+    <list nybble="12" title="Minimum Number of Players" comment="This determines the number of players required to be present for the Clowncar to spawn." advanced="True">
+      <entry value="0">None</entry>
+      <entry value="1">1 Player</entry>
+      <entry value="2">2 Players</entry>
+      <entry value="3">3 Players</entry>
+      <entry value="4">4 Players</entry>
+    </list>
   </sprite> <!-- #13: Rideable Clowncar with Cannon -->
   
-  <sprite id="14" name="(Unused) Captain Bowser Flame Breath" asmhacks="True" notes="Captain Bowser uses this in the NewerSMBW Final Boss Fight. &lt;br&gt; &lt;br&gt;&lt;font color=&quot;red&quot;&gt;Cannot be placed as an individual sprite.&lt;/font&gt;">
+  <sprite id="14" name="(Unused) Captain Bowser Flame Breath" asmhacks="True" notes="Captain Bowser uses this in the NewerSMBW Final Boss Fight.&lt;br&gt;&lt;br&gt;&lt;font color=&quot;red&quot;&gt;Cannot be placed as an individual sprite.&lt;/font&gt;">
   </sprite> <!-- #14: (Unused) Captain Bowser Flame Breath -->
   
-  <sprite id="15" name="Toad House Minigame - Music House" asmhacks="True" noyoshi="True" notes="This sprite is used to generate the Music House bonus game from NewerSMBW. The blocks will spawn centered on the sprite's placement. Playing the mini-game to completion will cause the level to end in completion." advancednotes="Additional songs can be added with a little adjustment to the sprite's code. Simple edits can allow for new songs in your hack.">
+  <sprite id="15" name="Toad House Minigame - Music House" asmhacks="True" noyoshi="True" notes="This sprite is used to generate the Music House bonus game from Newer. The blocks will spawn centered on the sprite's placement. Playing the mini-game until the end will cause the level to be completed." advancednotes="New songs can be added to this sprite's functionality specifically for your hack. This requires editing of the Newer source code.">
     <list nybble="5" title="1st Chord Prize" comment="This determines the prize awarded for passing the first Chord of the song.">
       <entry value="0">Mushroom</entry>
       <entry value="1">Fire Flower</entry>
@@ -293,41 +296,40 @@
       <entry value="9">50 Coins</entry>
     </list>
     <list nybble="12" title="Song" comment="This determines the song that must be played in the minigame. The number of Stars (*) represents the difficulty. The world the song was used within in Newer is listed in parentheses.">
-      <entry value="3">SMB3 Clouds |*    | (Goldwood)</entry>
-      <entry value="6">SMW Castle |*    | (Crystal Cave)</entry>
-      <entry value="8">Yoshi Story Theme |*    | (Yoshi Island)</entry>
-      <entry value="2">SMB Starman |**   | (Star Road)</entry>
-      <entry value="7">SMW Theme |**   | (Mt. Mush)</entry>
-      <entry value="13">Koopahari Desert |**   | (Desert)</entry>
-      <entry value="0">SMB Melody |***  | (Cherry)</entry>
-      <entry value="9">SM64 Peaches Castle |***  | (Yoshi Island)</entry>
-      <entry value="10">SM64 Koopa Road |***  | (Koopa Planet)</entry>
-      <entry value="11">Frappe Snowland |***  | (FreezeFlame)</entry>
-      <entry value="1">SMB Underground |**** | (Koopa Core)</entry>
-      <entry value="5">SMB3 Underwater |**** | (Sewer)</entry>
-      <entry value="12">Ghost Luigi Mansion theme |**** | (Ghost)</entry>
-      <entry value="4">SMB3 Hammer Bros |*****| (MiniMega)</entry>
-      <entry value="14">Gusty Garden Galaxy |*****| (Space)</entry> 
-      <entry value="15">Unused Slot |     | ()</entry>
+      <entry value="3">SMB3 Clouds |*    | (Goldwood Forest)</entry>
+      <entry value="6">SMW Castle |*    | (Crystal Caves)</entry>
+      <entry value="8">Yoshi Story Theme |*    | (Unused)</entry>
+      <entry value="2">SMB Starman |**   | (Unused)</entry>
+      <entry value="7">SMW Theme |**   | (Mushroom Peaks)</entry>
+      <entry value="13">Koopahari Desert |**   | (Rubble Ruins)</entry>
+      <entry value="0">SMB Melody |***  | (Sakura Village)</entry>
+      <entry value="9">SM64 Peaches Castle |***  | (Unused)</entry>
+      <entry value="10">SM64 Koopa Road |***  | (Unused)</entry>
+      <entry value="11">Frappe Snowland |***  | (Freezeflame Glacier)</entry>
+      <entry value="1">SMB Underground |**** | (Unused)</entry>
+      <entry value="5">SMB3 Underwater |**** | (Soggy Sewers)</entry>
+      <entry value="12">Ghost Luigi Mansion theme |**** | (Pumpkin Boneyard)</entry>
+      <entry value="4">SMB3 Hammer Bros |*****| (Minimega Island)</entry>
+      <entry value="14">Gusty Garden Galaxy |*****| (Unused)</entry> 
+      <entry value="15">Unused Slot</entry>
     </list>
-    <checkbox bit="44" title="Always used in NewerSMBW" comment="Unknown effect." advanced="True" advancedcomment="While this is always used in NewerSMBW's Music Houses, there's no discernable difference between having this enabled and not."/>
   </sprite> <!-- #15: Toad House Minigame - Music House -->
   
-  <sprite id="16" name="Bomb Drop Controller" asmhacks="True" yoshinotes="The Bomb Dropper does work with Yoshi. When the player is hit and he's on Yoshi, he will dismount Yoshi." notes="When one of the Triggering Events is activated, this controller will drop a large exploding spiked ball on either Bowser or a specific player." advancednotes="Feeling adventurous? Try making a multiplayer level that uses this sprite to create a versus style game which disables player respawn and triggers an event when only one player is left alive.">
+  <sprite id="16" name="Bomb Drop Controller" asmhacks="True" yoshinotes="The Bomb Dropper does work with Yoshi. When the player is hit and he's on Yoshi, he will dismount Yoshi." notes="When one of the Triggering Events is activated, this controller will drop a large exploding spiked ball on either Bowser or a specific player. The hitbox isn't exactly perfect, though." advancednotes="Feeling adventurous? Try making a multiplayer level that uses this sprite to create a versus style game which disables player respawn and triggers an event when only one player is left alive.">
     <value bit="18-24" title="Triggering Event ID #1" comment="Two different Event IDs can trigger the same bomb drop." idtype="Triggering Event"/>
     <value bit="26-32" title="Triggering Event ID #2" comment="Two different Event IDs can trigger the same bomb drop." idtype="Triggering Event"/>
     <list nybble="12" title="Target" comment="This determines which target the bomb will drop above. Players have the ability to outrun the bomb.">
       <entry value="0">Bowser</entry>
       <entry value="1">Mario (P1)</entry>
       <entry value="2">Luigi (P2)</entry>
-      <entry value="3">ToadA (P3)</entry>
-      <entry value="4">ToadB (P4)</entry>
+      <entry value="3">Yellow Toad (P3)</entry>
+      <entry value="4">Blue Toad (P4)</entry>
     </list>
   </sprite> <!-- #16: Bomb Drop Controller -->
   
-  <sprite id="17" name="Music House Glow Block" asmhacks="True" notes="These are the colored Glow Blocks that are created by [15] in NewerSMBW's Music Houses. They look like colored Glow Blocks. They can either be used as decoration, or as an item block.">
+  <sprite id="17" name="Music House Glow Block" asmhacks="True" notes="These are the colored Glow Blocks that are created by the Music House Minigame in Newer. They can either be used as decoration, or as an item block. The block will spawn two tiles upper and half a tile to the right of the sprite's placement.">
     <dualbox bit="44" title1="Plays a Musical Note" title2="Awards an Item" comment="This determines if the glow block will play a note when struck or award an item."/>
-    <list nybble="7-8" title="Item" comment="This determines the item rewarded." comment2="[Bug] Block will award unlimited items." advancedcomment="The block can be set to both award an item and play a musical note, but it is not recommended." requiredbit="44">
+    <list nybble="7-8" title="Item" comment="This determines the item rewarded." comment2="&lt;font color=&quot;Red&quot;&gt;[Bug] Block will award unlimited items.&lt;/font&gt;" advancedcomment="The block can be set to both award an item and play a musical note, but it is not recommended." requiredbit="44">
       <entry value="0">None</entry>
       <entry value="1">Star</entry>
       <entry value="2">Coin</entry>
@@ -340,7 +342,7 @@
       <entry value="21">Propeller Mushroom</entry>
       <entry value="25">Mini Mushroom</entry>
     </list>
-    <list nybble="12" title="Color" comment="This determines the color of the glow block." requiredbit="44">
+    <list nybble="12" title="Color" comment="This determines the color of the glow block." comment2="&lt;font color=&quot;Red&quot;&gt;[Bug] Value 0: White currently crashes the game due to a missing file.&lt;/font&gt;" requiredbit="44">
       <entry value="0">White</entry>
       <entry value="1">Red</entry>
       <entry value="2">Orange</entry>
@@ -351,8 +353,8 @@
       <entry value="7">Violet</entry>
       <entry value="8">Black</entry>
     </list>
-    <list nybble="12" title="Color &amp; Note" comment="This determines which note is played when a player hits the block." comment2="&lt;font color=&quot;Red&quot;&gt;*[Bug] Value 0: White - C1♯ currently crashes the game.&lt;/font&gt;" requiredbit="44" requiredval="0">
-      <entry value="0">White - C1♯ (C1 Sharp)*</entry>
+    <list nybble="12" title="Color &amp; Note" comment="This determines which note is played when a player hits the block." comment2="&lt;font color=&quot;Red&quot;&gt;[Bug] Value 0: White - C1♯ currently crashes the game due to a missing file.&lt;/font&gt;" requiredbit="44" requiredval="0">
+      <entry value="0">White - C1♯ (C1 Sharp)</entry>
       <entry value="1">Red - C1 (High C)</entry>
       <entry value="2">Orange - D1</entry>
       <entry value="3">Yellow - E1</entry>
@@ -364,12 +366,12 @@
     </list>
   </sprite> <!-- #17: Music House Glow Block -->
   
-  <sprite id="18" name="Dragon Coaster Platform" asmhacks="True" notes="This creates immobile 'Dragon Coaster' Platforms (1x2). The Sprite's placement represents the right side of the Platform.">
+  <sprite id="18" name="Dragon Coaster Platform" asmhacks="True" notes="This creates immobile 'Dragon Coaster' Platforms (1x2). The Sprite's placement represents either the right (if set to face to the right) or the left side (if set to face to the left) of the Platform.">
     <dependency notes="The normal Dragon Coaster [297] must be placed somewhere in your level. It does not have to be part of a zone.">
       <requires sprite="297"/> <!-- Dragon Coaster -->
     </dependency>
     <dualbox bit="20" title1="Horizontal Platform" title2="Angled Platform" comment="This determines if the platform is flat (horizontal), or if it is tilted at an angle."/>
-    <dualbox bit="21" title1="Angles Left" title2="Angles Right" comment="This determines which direction the platform will be angled." requiredbit="20"/> <!-- Appears only if Angled is enabled -->
+    <dualbox bit="21" title1="Angles Right" title2="Angles Left" comment="This determines which direction the platform will be angled." requiredbit="20"/> <!-- Appears only if Angled is enabled -->
     <list bit="22-24" title="Angle" comment="This determines the amount of tilt the platform will have." comment2="Angles greater than 45° have glitchy collision and are not recommended." requiredbit="20-21" requiredval="2">
       <entry value="7">11.25°</entry>
       <entry value="6">22.50°</entry>
@@ -395,17 +397,14 @@
       <entry value="1">Body</entry>
       <entry value="2">Tail</entry>
     </list>
-    <dualbox bit="28" title1="Faces Left" title2="Faces Right" comment="This determines which direction the platform will face." requiredbit="48" requiredval="0"/> <!-- Only shows when Segment is set to Head or Tail; assumes no effect on Body -->
+    <dualbox bit="28" title1="Faces Right" title2="Faces Left" comment="This determines which direction the platform will face."/>
   </sprite> <!-- #18: Dragon Coaster Platform -->
   
-<!-- Document Dependency. Check for Level/Area/Zone requirements. Ask Treeki about isBigBoss effects. -->
-  <sprite id="19" name="World-4 Boss: Samurshai" asmhacks="True" noyoshi="True" notes="Samurai Shy Guy boss used by NewerSMBW.">
-    <dependency notes="">
-      <required sprite=""/> <!-- Kamek -->
-      <required sprite=""/> <!-- Kamek Controller -->
-      <required sprite=""/> <!-- ??? -->
+  <sprite id="19" name="World-4 Boss: Samurshai" asmhacks="True" noyoshi="True" notes="Samurai Shy Guy boss used by Newer. The sprite image is placed one tile too high.">
+    <dependency notes="Kamek is required in the Area for the boss to work.">
+      <required sprite="383"/>
     </dependency>
-    <dualbox bit="20" title1="Tower Boss" title2="Castle Boss" comment="Affects certain cinematics."/>
+    <dualbox bit="20" title1="Slow" title2="Fast" comment="This determines if Samurshai's running speed when attacking after being hit."/>
   </sprite> <!-- #19: World-4 Boss: Samurshai -->
   
   <sprite id="20" name="Goomba" asmhacks="True" sizehacks="True" notes="Your standard Goomba. Place it in the level and it will walk towards Mario when it loads.">
