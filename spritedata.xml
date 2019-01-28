@@ -400,27 +400,70 @@
     <dualbox bit="28" title1="Faces Right" title2="Faces Left" comment="This determines which direction the platform will face."/>
   </sprite> <!-- #18: Dragon Coaster Platform -->
   
-  <sprite id="19" name="World-4 Boss: Samurshai" asmhacks="True" noyoshi="True" notes="Samurai Shy Guy boss used by Newer. The sprite image is placed one tile too high.">
+  <sprite id="19" name="World-4 Boss: Samurshai" asmhacks="True" noyoshi="True" notes="Samurai Shy Guy boss used by Newer.">
     <dependency notes="Kamek is required in the Area for the boss to work.">
       <required sprite="383"/>
     </dependency>
     <dualbox bit="20" title1="Slow" title2="Fast" comment="This determines if Samurshai's running speed when attacking after being hit."/>
   </sprite> <!-- #19: World-4 Boss: Samurshai -->
   
-  <sprite id="20" name="Goomba" asmhacks="True" sizehacks="True" notes="Your standard Goomba. Place it in the level and it will walk towards Mario when it loads.">
-    <list nybble="6" title="Color" comment="This determines the color and style of the Goomba.">
+  <sprite id="20" name="Goomba" asmhacks="True" notes="Your standard Goomba. Place it in the level and it will walk towards Mario when it loads.">
+    <list nybble="5" title="Scale (Type A)" comment="Allows scaling the Goomba. Requires Sprite 246 (Special Event). Please be aware that enemies won't resize if they are in the same screen as an Entrance to the Zone." comment2="Goombas of sizes 25% and 50% can be stomped simply by running into them. Sizes higher than 300% will cause major hitbox issues with walls, but will otherwise work fine.">
+      <entry value="0">Normal</entry>
+      <entry value="1">Normal</entry>
+      <entry value="2">Normal</entry>
+      <entry value="3">Normal</entry>
+      <entry value="4">&#188; (25%)</entry>
+      <entry value="5">&#189; (50%)</entry>
+      <entry value="6">&#190; (75%)</entry>
+      <entry value="7">1&#188; (125%)</entry>
+      <entry value="8">1&#189; (150%)</entry>
+      <entry value="9">2 (200%)</entry>
+      <entry value="10">2&#189; (250%)</entry>
+      <entry value="11">3 (300%)</entry>
+      <entry value="12">4 (400%)</entry>
+      <entry value="13">5 (500%)</entry>
+      <entry value="14">6 (600%)</entry>
+      <entry value="15">10 (1000%)</entry>
+    </list>
+	<list nybble="7" title="Scale (Type B)" comment="Allows scaling the Goomba. Requires Sprite 246 (Special Event). Please be aware that enemies won't resize if they are in the same screen as an Entrance to the Zone." comment2="Goombas of sizes 25% and 50% can be stomped simply by running into them. Sizes higher than 300% will cause major hitbox issues with walls, but will otherwise work fine.">
+      <entry value="0">Normal</entry>
+      <entry value="1">Normal</entry>
+      <entry value="2">Normal</entry>
+      <entry value="3">Normal</entry>
+      <entry value="4">&#188; (25%)</entry>
+      <entry value="5">&#189; (50%)</entry>
+      <entry value="6">&#190; (75%)</entry>
+      <entry value="7">1&#188; (125%)</entry>
+      <entry value="8">1&#189; (150%)</entry>
+      <entry value="9">2 (200%)</entry>
+      <entry value="10">2&#189; (250%)</entry>
+      <entry value="11">3 (300%)</entry>
+      <entry value="12">4 (400%)</entry>
+      <entry value="13">5 (500%)</entry>
+      <entry value="14">6 (600%)</entry>
+      <entry value="15">10 (1000%)</entry>
+    </list>
+    <list nybble="6" title="Color" comment="This determines the color and style of the Goomba." comment2="Models without a name don't exist in Newer, but are present for customization purposes.">
       <entry value="0">Normal</entry>
       <entry value="1">Gloomba</entry>
-      <entry value="2">Hyper</entry>
+      <entry value="2">Normal</entry>
       <entry value="3">Bella</entry>
       <entry value="4">Red</entry>
       <entry value="5">Blue</entry>
       <entry value="6">Gray</entry>
       <entry value="7">Santa</entry>
       <entry value="8">Gray Santa</entry>
+      <entry value="9">Model 9</entry>
+      <entry value="10">Model 10</entry>
+      <entry value="11">Model 11</entry>
+      <entry value="12">Model 12</entry>
+      <entry value="13">Model 13</entry>
+      <entry value="14">Model 14</entry>
+      <entry value="15">Model 15</entry>
     </list> <!-- Update [21] Paragoomba and [99] Pipe Enemy Generator when new items are added to this list! -->
-    <checkbox bit="32" title="Place Behind Other Sprites" comment="When enabled, this changes the relative Z-Order of the Goomba placing it further behind other sprites."/>
-    <list nybble="12" title="Load-In Animation" comment="This determines what animation state is used by the Goomba when it is first loaded. This is useful for Goombas within range of a nearby Entrance." comment2="Jumps and 'Tumble' will result in it landing on the next platform below where it was initially placed.">
+    <checkbox bit="32" title="Place Behind Other Sprites" comment="When enabled, this changes the relative Z-Order of the Goomba, placing it further behind other sprites."/>
+    <list nybble="12" title="Initial Animation" comment="This determines what animation state is used by the Goomba when it is first loaded. This is useful for Goombas within range of a nearby Entrance." comment2="&lt;br&gt;&lt;br&gt;Tumble: The Goomba will tumble down from the platform it was placed on.&lt;br&gt;Small Jump: An unnatural, one tile-high jump.&lt;br&gt;Hesitates: The Goomba will freeze in place for around one second and then start moving.&lt;br&gt;Medium Jump : A two and a half tile-high jump.&lt;br&gt;Large Jump: A five tile-high jump." advancedcomment="Values 6 and above = Goomba does not show.">
       <entry value="0">Normal</entry>
       <entry value="1">Tumble</entry>
       <entry value="2">Small Jump</entry>
@@ -430,19 +473,62 @@
     </list>
   </sprite> <!-- #20: Goomba -->
   
-  <sprite id="21" name="Paragoomba" asmhacks="True" sizehacks="True" notes="A Goomba with wings that will flutter towards Mario when it loads.">
-    <list nybble="6" title="Color" comment="This determines the color and style of the Paragoomba.">
+  <sprite id="21" name="Paragoomba" asmhacks="True" notes="A Goomba with wings that will flutter towards Mario when it loads.">
+    <list nybble="5" title="Scale (Type A)" comment="Allows scaling the Paragoomba. Requires Sprite 246 (Special Event). Please be aware that enemies won't resize if they are in the same screen as an Entrance to the Zone." comment2="Paragoombas of sizes 25% and 50% can be stomped simply by running into them, when they are on the ground. Sizes higher than 300% will cause major hitbox issues with walls, but will otherwise work fine.">
+      <entry value="0">Normal</entry>
+      <entry value="1">Normal</entry>
+      <entry value="2">Normal</entry>
+      <entry value="3">Normal</entry>
+      <entry value="4">&#188; (25%)</entry>
+      <entry value="5">&#189; (50%)</entry>
+      <entry value="6">&#190; (75%)</entry>
+      <entry value="7">1&#188; (125%)</entry>
+      <entry value="8">1&#189; (150%)</entry>
+      <entry value="9">2 (200%)</entry>
+      <entry value="10">2&#189; (250%)</entry>
+      <entry value="11">3 (300%)</entry>
+      <entry value="12">4 (400%)</entry>
+      <entry value="13">5 (500%)</entry>
+      <entry value="14">6 (600%)</entry>
+      <entry value="15">10 (1000%)</entry>
+    </list>
+	<list nybble="7" title="Scale (Type B)" comment="Allows scaling the Paragoomba. Requires Sprite 246 (Special Event). Please be aware that enemies won't resize if they are in the same screen as an Entrance to the Zone." comment2="Paragoombas of sizes 25% and 50% can be stomped simply by running into them, when they are on the ground. Sizes higher than 300% will cause major hitbox issues with walls, but will otherwise work fine.">
+      <entry value="0">Normal</entry>
+      <entry value="1">Normal</entry>
+      <entry value="2">Normal</entry>
+      <entry value="3">Normal</entry>
+      <entry value="4">&#188; (25%)</entry>
+      <entry value="5">&#189; (50%)</entry>
+      <entry value="6">&#190; (75%)</entry>
+      <entry value="7">1&#188; (125%)</entry>
+      <entry value="8">1&#189; (150%)</entry>
+      <entry value="9">2 (200%)</entry>
+      <entry value="10">2&#189; (250%)</entry>
+      <entry value="11">3 (300%)</entry>
+      <entry value="12">4 (400%)</entry>
+      <entry value="13">5 (500%)</entry>
+      <entry value="14">6 (600%)</entry>
+      <entry value="15">10 (1000%)</entry>
+    </list>
+    <list nybble="6" title="Color" comment="This determines the color and style of the Paragoomba." comment2="Models without a name don't exist in Newer, but are present for customization purposes.">
       <entry value="0">Normal</entry>
       <entry value="1">Gloomba</entry>
-      <!--<entry value="2">Hyper</entry>-->
+      <entry value="2">Normal</entry>
       <entry value="3">Bella</entry>
       <entry value="4">Red</entry>
       <entry value="5">Blue</entry>
       <entry value="6">Gray</entry>
       <entry value="7">Santa (No Wings)</entry>
       <entry value="8">Gray Santa (No Wings)</entry>
+      <entry value="9">Model 9</entry>
+      <entry value="10">Model 10</entry>
+      <entry value="11">Model 11</entry>
+      <entry value="12">Model 12</entry>
+      <entry value="13">Model 13</entry>
+      <entry value="14">Model 14</entry>
+      <entry value="15">Model 15</entry>
     </list>
-    <checkbox bit="32" title="Place Behind Other Sprites" comment="When enabled, this changes the relative Z-Order of the Paragoomba placing it further behind other sprites."/>
+    <checkbox bit="32" title="Place Behind Other Sprites" comment="When enabled, this changes the relative Z-Order of the Paragoomba, placing it further behind other sprites."/>
   </sprite> <!-- #21: Paragoomba -->
   
   <sprite id="22" name="Pumpkin Goomba" asmhacks="True" notes="A Goomba inside a pumpkin.">
