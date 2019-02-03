@@ -531,24 +531,59 @@
     <checkbox bit="32" title="Place Behind Other Sprites" comment="When enabled, this changes the relative Z-Order of the Paragoomba, placing it further behind other sprites."/>
   </sprite> <!-- #21: Paragoomba -->
   
-  <sprite id="22" name="Pumpkin Goomba" asmhacks="True" notes="A Goomba inside a pumpkin.">
+  <sprite id="22" name="Pumpkin Goomba" asmhacks="True" notes="A Goomba inside a pumpkin. Very buggy sprite, usage not recommended." yoshinotes="Yoshi doesn't work perfectly with this sprite: when eating a Pumpkin Goomba the pumpkin itself won't disappear." advancednotes="Other than the fact that if the Pumpkin Goomba goes offscreen he will disappear leaving the pumpkin behind, many items and actions do not work properly with this sprite.&lt;br&gt;&lt;br&gt;Ground Pound/Propeller Drilling: Will only burst the pumpkin but not kill the Goomba.&lt;br&gt;Ice Flower: The ice block doesn't fit, and the pumpkin will still burst when walking over the block or grabbing it.&lt;br&gt;Penguin Suit: Same issues as Ice Flower, plus sliding into a Pumpkin Goomba will both burst the pumpkin and kill the Goomba, but also push Mario back.&lt;br&gt;Star: Will burst the pumpkin and kill the Goomba." noyoshi="True">
     <dualbox bit="48" title1="Goomba" title2="Paragoomba" comment="This determines if the Pumpkin Goomba behaves like a normal Goomba or like a Paragoomba."/>
   </sprite> <!-- #22: Pumpkin Goomba -->
   
   <sprite id="23" name="Basic Platform - Horizontal Movement" notes="The most basic platform in the game. Moves on its own from left to right.">
-    <dualbox bit="27" title1="Normal Model" title2="boss_koopa_lift.arc" advanced="True" advancedcomment="Instead of the normal model, a texture from boss_koopa_lift.arc can be used. Replacing this model will result in custom textures for the platform."/>
+    <dualbox bit="27" title1="Normal Model" title2="boss_koopa_lift.arc" advanced="True" advancedcomment="Instead of the normal model, a model from boss_koopa_lift.arc can be used. Replacing it will result in a custom style for the platform."/>
     <dualbox bit="28" title1="Gold Platform" title2="Silver Platform" comment="This determines the color of the platform." requiredbit="27" requiredval="0"/>
-    <dualbox bit="28" title1="Model#1" title2="Model#2" comment="This determines which model within boss_koopa_lift.arc will be used. The default texture model is the Gold Platform." advanced="True" requiredbit="27"/>
     <value nybble="12" title="Width" comment="This determines the width of the platform."/>
     <dualbox bit="32" title1="Starts moving Right" title2="Starts moving Left" comment="This determines which direction the platform will initially start moving in."/>
     <value nybble="10" title="Movement Distance" comment="This determines the distance the platform will move."/>
-    <dualbox bit="24" title1="Fast" title2="Slow" comment="This determines the speed the platform will move." comment2="The exact speed difference between the two speeds is a 5:9 ratio."/>
+    <dualbox bit="24" title1="Normal" title2="Slow" comment="This determines the speed the platform will move." comment2="The ratio between the two speeds is about 5:9."/>
     <checkbox bit="20" title="Event Activated" comment="When enabled, the platform will only appear if the Triggering Event ID is activated."/>
     <value bit="10-16" title="Triggering Event ID" requiredbit="20" idtype="Triggering Event"/>
   </sprite> <!-- #23: Basic Platform - Horizontal Movement -->
   
-  <sprite id="24" name="Buzzy Beetle" asmhacks="True" sizehacks="True" notes="A standard Buzzy Beetle enemy that walks towards the player when it loads. It will turn around when it reaches ledges and blocks are treated the same as terrain.">
-    <list nybble="6" title="Color" comment="This determines the color of the Buzzy Beetle.">
+  <sprite id="24" name="Buzzy Beetle" asmhacks="True" notes="A standard Buzzy Beetle enemy that walks towards the player when it loads. It will turn around when it reaches ledges and blocks are treated the same as terrain.">
+    <list nybble="5" title="Scale (Type A)" comment="Allows scaling the Buzzy Beetle. Requires Sprite 246 (Special Event). Please be aware that enemies won't resize if they are in the same screen as an Entrance to the Zone." comment2="It is recommended to use the Giant Buzzy Beetle sprite, if possible. Buzzy Beetles of sizes 25% and 50% can be stomped simply by running into them, but will look weird in Mario's hands. As the size gets bigger, the shell's speed will become insanely fast, and sizes higher than 300% will cause major hitbox issues with walls, but will otherwise work fine." advancedcomment="Keep in mind that beetles, no matter how small, will be able to kill any enemy that normal ones can. Take care.">
+      <entry value="0">Normal</entry>
+      <entry value="1">Normal</entry>
+      <entry value="2">Normal</entry>
+      <entry value="3">Normal</entry>
+      <entry value="4">&#188; (25%)</entry>
+      <entry value="5">&#189; (50%)</entry>
+      <entry value="6">&#190; (75%)</entry>
+      <entry value="7">1&#188; (125%)</entry>
+      <entry value="8">1&#189; (150%)</entry>
+      <entry value="9">2 (200%)</entry>
+      <entry value="10">2&#189; (250%)</entry>
+      <entry value="11">3 (300%)</entry>
+      <entry value="12">4 (400%)</entry>
+      <entry value="13">5 (500%)</entry>
+      <entry value="14">6 (600%)</entry>
+      <entry value="15">10 (1000%)</entry>
+    </list>
+	<list nybble="7" title="Scale (Type B)" comment="Allows scaling the Buzzy Beetle. Requires Sprite 246 (Special Event). Please be aware that enemies won't resize if they are in the same screen as an Entrance to the Zone." comment2="It is recommended to use the Giant Buzzy Beetle sprite, if possible. Buzzy Beetles of sizes 25% and 50% can be stomped simply by running into them, but will look weird in Mario's hands. As the size gets bigger, the shell's speed will become insanely fast, and sizes higher than 300% will cause major hitbox issues with walls, but will otherwise work fine." advancedcomment="Keep in mind that beetles, no matter how small, will be able to kill any enemy that normal ones can. Take care.">
+      <entry value="0">Normal</entry>
+      <entry value="1">Normal</entry>
+      <entry value="2">Normal</entry>
+      <entry value="3">Normal</entry>
+      <entry value="4">&#188; (25%)</entry>
+      <entry value="5">&#189; (50%)</entry>
+      <entry value="6">&#190; (75%)</entry>
+      <entry value="7">1&#188; (125%)</entry>
+      <entry value="8">1&#189; (150%)</entry>
+      <entry value="9">2 (200%)</entry>
+      <entry value="10">2&#189; (250%)</entry>
+      <entry value="11">3 (300%)</entry>
+      <entry value="12">4 (400%)</entry>
+      <entry value="13">5 (500%)</entry>
+      <entry value="14">6 (600%)</entry>
+      <entry value="15">10 (1000%)</entry>
+    </list>
+    <list nybble="6" title="Color" comment="This determines the color of the Buzzy Beetle." comment2="Models without a name don't exist in Newer, but are present for customization purposes.">
       <entry value="0">Original</entry>
       <entry value="1">Red</entry>
       <entry value="2">Orange</entry>
@@ -557,13 +592,57 @@
       <entry value="5">Blue</entry>
       <entry value="6">Violet</entry>
       <entry value="7">Black</entry>
+      <entry value="8">Model 8</entry>
+      <entry value="9">Model 9</entry>
+      <entry value="10">Model 10</entry>
+      <entry value="11">Model 11</entry>
+      <entry value="12">Model 12</entry>
+      <entry value="13">Model 13</entry>
+      <entry value="14">Model 14</entry>
+      <entry value="15">Model 15</entry>
     </list>
-    <checkbox bit="48" title="Upside-Down" comment="When enabled, the Buzzy Beetle will be upside-down and able to cling to and walk on ceilings if placed adjacent to them. If not placed adjacent, he will immediately fall and spin towards the player."/>
-    <checkbox bit="47" title="Inside Shell" comment="When enabled, the Buzzy Beetle will spawn inside his shell. He will eventually climb out and resume walking, even if set to be upside-down. Upside-down shells will fall without spinning towards the player."/>
+    <checkbox bit="48" title="Upside-Down" comment="When enabled, the Buzzy Beetle will be upside-down and able to cling to and walk on ceilings if placed adjacent to them. If not placed adjacent, it will immediately fall and spin towards the player."/>
+    <checkbox bit="47" title="Inside Shell" comment="When enabled, the Buzzy Beetle will spawn inside his shell. It will eventually climb out and resume walking, even if set to be upside-down. Upside-down shells will fall without spinning towards the player."/>
   </sprite> <!-- #24: Buzzy Beetle -->
   
-  <sprite id="25" name="Spiny" asmhacks="True" sizehacks="True" notes="A Spiny that walks along the ground.">
-    <list nybble="6" title="Color" comment="This determines the color and style of the Spiny.">
+  <sprite id="25" name="Spiny" asmhacks="True" notes="A Spiny that walks along the ground.">
+    <list nybble="5" title="Scale (Type A)" comment="Allows scaling the Spiny. Requires Sprite 246 (Special Event). Please be aware that enemies won't resize if they are in the same screen as an Entrance to the Zone." comment2="Spinies of sizes 25% and 50% will look weird in Mario's hands. As the size gets bigger, the spiny shell's speed will become insanely fast, and sizes higher than 300% will cause major hitbox issues with walls, but will otherwise work fine." advancedcomment="Keep in mind that spinies, no matter how small, will be able to kill any enemy that normal ones can. Take care.">
+      <entry value="0">Normal</entry>
+      <entry value="1">Normal</entry>
+      <entry value="2">Normal</entry>
+      <entry value="3">Normal</entry>
+      <entry value="4">&#188; (25%)</entry>
+      <entry value="5">&#189; (50%)</entry>
+      <entry value="6">&#190; (75%)</entry>
+      <entry value="7">1&#188; (125%)</entry>
+      <entry value="8">1&#189; (150%)</entry>
+      <entry value="9">2 (200%)</entry>
+      <entry value="10">2&#189; (250%)</entry>
+      <entry value="11">3 (300%)</entry>
+      <entry value="12">4 (400%)</entry>
+      <entry value="13">5 (500%)</entry>
+      <entry value="14">6 (600%)</entry>
+      <entry value="15">10 (1000%)</entry>
+    </list>
+	<list nybble="7" title="Scale (Type B)" comment="Allows scaling the Spiny. Requires Sprite 246 (Special Event). Please be aware that enemies won't resize if they are in the same screen as an Entrance to the Zone." comment2="Spinies of sizes 25% and 50% will look weird in Mario's hands. As the size gets bigger, the spiny shell's speed will become insanely fast, and sizes higher than 300% will cause major hitbox issues with walls, but will otherwise work fine." advancedcomment="Keep in mind that spinies, no matter how small, will be able to kill any enemy that normal ones can. Take care.">
+      <entry value="0">Normal</entry>
+      <entry value="1">Normal</entry>
+      <entry value="2">Normal</entry>
+      <entry value="3">Normal</entry>
+      <entry value="4">&#188; (25%)</entry>
+      <entry value="5">&#189; (50%)</entry>
+      <entry value="6">&#190; (75%)</entry>
+      <entry value="7">1&#188; (125%)</entry>
+      <entry value="8">1&#189; (150%)</entry>
+      <entry value="9">2 (200%)</entry>
+      <entry value="10">2&#189; (250%)</entry>
+      <entry value="11">3 (300%)</entry>
+      <entry value="12">4 (400%)</entry>
+      <entry value="13">5 (500%)</entry>
+      <entry value="14">6 (600%)</entry>
+      <entry value="15">10 (1000%)</entry>
+    </list>
+    <list nybble="6" title="Color" comment="This determines the color and style of the Spiny." comment2="Models without a name don't exist in Newer, but are present for customization purposes.">
       <entry value="0">Original</entry>
       <entry value="1">Orange</entry>
       <entry value="2">Yellow</entry>
@@ -572,14 +651,22 @@
       <entry value="5">Violet</entry>
       <entry value="6">Black</entry>
       <entry value="7">Sidestepper</entry>
+      <entry value="8">Model 8</entry>
+      <entry value="9">Model 9</entry>
+      <entry value="10">Model 10</entry>
+      <entry value="11">Model 11</entry>
+      <entry value="12">Model 12</entry>
+      <entry value="13">Model 13</entry>
+      <entry value="14">Model 14</entry>
+      <entry value="15">Model 15</entry>
     </list>
-    <list bit="47-48" title="Load-In Animation" comment="This will determine which animation state is used by the Spiny when it is first loaded.">
+    <list bit="47-48" title="Load-In Animation" comment="This will determine which animation state is used by the Spiny when it is first loaded." comment2="If placed on the ground, Balled Up Spinies will fall through it. Spinies in their shells will eventually climb out and resume walking, even if set to be upside-down.">
       <entry value="0">Normal</entry>
       <entry value="1">Balled Up (Lakitu)</entry>
       <entry value="2">Shell</entry>
       <entry value="3">Upside-Down Shell</entry>
     </list>
-    <checkbox bit="44" title="Unknown Flag 11" advanced="True" advancedcomment="Unused flag with unknown effects."/>
+    <checkbox bit="44" title="Unknown Flag 11" advanced="True" advancedcomment="Unused flag with seemingly no effects."/>
   </sprite> <!-- #25: Spiny -->
   
 <!-- Research Unknown Flag 12 -->
